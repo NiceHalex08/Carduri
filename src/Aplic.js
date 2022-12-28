@@ -3,22 +3,26 @@ import Header from './Header';
 import Form from './Form';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
+import SnakBar from './SnakBar';
+
 const Aplic = () => {
   const [cards, setCards] = useState([{}]);
   const addCard = (name, count) => {
     setCards([...cards, { id: uuidv4(), name: name, count: count }]);
   };
   const update1 = (id) => {
+    <SnakBar />
     let newArr = [...cards];
     newArr.map((el) => {
       if (el.id === id) {
         el.count++;
-        alert('Cantitate: ' + el.count);
+        // alert('Cantitate: ' + el.count);
       }
       return el;
     });
-    //alert('Cantitate: ' + cards.count);
+  
     setCards(newArr);
+    
   };
 
   const handleMinus = (id) => {
@@ -27,7 +31,7 @@ const Aplic = () => {
         if (card.count > 0) return { ...card, count: card.count - 1 };
         else {
           deleteCards(id);
-          console.log('delete');
+        
         }
       }
       return card;

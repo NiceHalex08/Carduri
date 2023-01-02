@@ -3,7 +3,9 @@ import Header from './Header';
 import Form from './Form';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import SnakBar from './SnakBar';
+import { Typography } from '@mui/material';
+
+
 
 const Aplic = () => {
   const [cards, setCards] = useState([{}]);
@@ -11,18 +13,25 @@ const Aplic = () => {
     setCards([...cards, { id: uuidv4(), name: name, count: count }]);
   };
   const update1 = (id) => {
-    <SnakBar />
+   
     let newArr = [...cards];
     newArr.map((el) => {
       if (el.id === id) {
         el.count++;
         // alert('Cantitate: ' + el.count);
+        // <SnakBar />
+        // snackbarShowMessage(
+        //   `Ati modificat elementul cu numele: ${el.name} 
+        //   Cantitate noua:${el.count}`,
+        //   'info',
+        //   5000,
+        // );        
       }
       return el;
     });
   
     setCards(newArr);
-    
+   
   };
 
   const handleMinus = (id) => {
@@ -43,9 +52,14 @@ const Aplic = () => {
   };
   return (
     <div>
+      <Typography variant="h1" component="">
+  
+      </Typography>;
+
       <div className='stiky'>
         <div className='header'>
           <Header />
+          
         </div>
       </div>
       <div className='center'>

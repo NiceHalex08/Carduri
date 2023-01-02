@@ -6,6 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
  const SimpleSnackbar=()=> {
   const [open, setOpen] = React.useState(false);
+  const [message,setMessage]=React.useState('');
 
   const handleClick = () => {
     setOpen(true);
@@ -18,6 +19,15 @@ import CloseIcon from '@mui/icons-material/Close';
 
     setOpen(false);
   };
+  const   showMessage = (message, severity, duration = 2000) => {
+    // Renders a message
+    setMessage({
+      message: message,
+      severity: severity,
+      duration: duration,
+      open: true,
+    });
+   
 
   const action = (
     <React.Fragment>
@@ -47,5 +57,5 @@ import CloseIcon from '@mui/icons-material/Close';
       />
     </div>
   );
-}
+}}
 export default SimpleSnackbar ;

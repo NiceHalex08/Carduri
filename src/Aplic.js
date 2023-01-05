@@ -3,7 +3,7 @@ import Header from './Header';
 import Form from './Form';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import { Typography } from '@mui/material';
+import { SnakBar, Typography } from '@mui/material';
 
 
 
@@ -19,13 +19,8 @@ const Aplic = () => {
       if (el.id === id) {
         el.count++;
         // alert('Cantitate: ' + el.count);
-        // <SnakBar />
-        // snackbarShowMessage(
-        //   `Ati modificat elementul cu numele: ${el.name} 
-        //   Cantitate noua:${el.count}`,
-        //   'info',
-        //   5000,
-        // );        
+       
+        
       }
       return el;
     });

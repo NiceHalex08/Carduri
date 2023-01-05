@@ -1,18 +1,19 @@
+import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 const Header = () => {
   return (
-    <div>
-      <div>
+    <Box>
+      <Box>
         <Link to='/Pag1'>
           <button className='sideButton'>ggg</button>
         </Link>
-      </div>
-      <div>
+      </Box>
+      <Box>
         <Link to='/Pag2'>
           <button className='sideButton'>gggg</button>
         </Link>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 export default Header;

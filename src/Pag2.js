@@ -1,8 +1,10 @@
+import { Box } from '@mui/material';
+
 const Pag2 = () => {
   return (
-    <div>
-      <div>Pag2</div>
-    </div>
+    <Box>
+      <Box>Pag2</Box>
+    </Box>
   );
 };
 export default Pag2;

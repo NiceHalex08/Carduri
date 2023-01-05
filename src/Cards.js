@@ -1,16 +1,14 @@
-// SALUT DRAGOS
 import { useState } from 'react';
 import './App.css';
-import { v4 as uuidv4 } from 'uuid';
+import { Box } from '@mui/material';
 import Card from './Card';
 const Cards = (props) => {
   const { cards, update1, handleMinus, deleteCards } = props;
 
-
   return (
-    <div className='objcontent'>
-      <div className='btnArea'></div>
-      <div className='cardsArea'>
+    <Box className='objcontent'>
+      <Box className='btnArea'></Box>
+      <Box className='cardsArea'>
         {cards.map((element) => (
           <Card
             element={element}
@@ -19,8 +17,8 @@ const Cards = (props) => {
             deleteCards={deleteCards}
           ></Card>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

@@ -1,32 +1,38 @@
+// Library imports
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+//Internal imports
 import Cards from './Cards';
 import Header from './Header';
 import Form from './Form';
-import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react';
-import { SnakBar, Typography } from '@mui/material';
+import SimpleSnackbar from './SnakBar';
 
-
+//Design imports
+import { Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 const Aplic = () => {
-  const [cards, setCards] = useState([{}]);
+  const [cards, setCards] = useState([]);
+  const [message, setMessage] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
+
   const addCard = (name, count) => {
     setCards([...cards, { id: uuidv4(), name: name, count: count }]);
   };
   const update1 = (id) => {
-   
     let newArr = [...cards];
     newArr.map((el) => {
       if (el.id === id) {
         el.count++;
         // alert('Cantitate: ' + el.count);
-       
-        
+        setIsOpen(true);
+        setMessage(`Cantitate noua ${el.count}`);
       }
       return el;
     });
-  
+
     setCards(newArr);
-   
   };
 
   const handleMinus = (id) => {
@@ -35,7 +41,6 @@ const Aplic = () => {
         if (card.count > 0) return { ...card, count: card.count - 1 };
         else {
           deleteCards(id);
-        
         }
       }
       return card;
@@ -45,33 +50,42 @@ const Aplic = () => {
   const deleteCards = (id) => {
     setCards(cards.filter((cards) => cards.id !== id));
   };
-  return (
-    <div>
-      <Typography variant="h1" component="">
-  
-      </Typography>;
 
-      <div className='stiky'>
-        <div className='header'>
+  const showMessage = (message) => {
+    setIsOpen(true);
+    setMessage(message);
+  };
+
+  return (
+    <Box>
+      <Typography variant='h1' component=''></Typography>
+      <Box className='stiky'>
+        <Box className='header'>
           <Header />
-          
-        </div>
-      </div>
-      <div className='center'>
-        <div class='Sidebar'>
+        </Box>
+      </Box>
+      <Box className='center'>
+        <Box className='Sidebar'>
           <Form addCard={addCard} />
-        </div>
-        <div className='main'>
+        </Box>
+        <Box className='main'>
           <Cards
             cards={cards}
             update1={update1}
             handleMinus={handleMinus}
             deleteCards={deleteCards}
           />
-        </div>
-      </div>
-      <div className='footer'></div>
-    </div>
+        </Box>
+      </Box>
+      <Box className='footer'></Box>
+      {
+        <SimpleSnackbar
+          message={message}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+      }
+    </Box>
   );
 };
 export default Aplic;

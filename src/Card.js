@@ -1,10 +1,11 @@
 import { Button, TextField } from '@mui/material';
-import { useState } from 'react'
+import { useState } from 'react';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
+import { Box } from '@mui/material';
 
 const Card = (props) => {
   const { element, update1, handleMinus, deleteCards } = props;
@@ -21,37 +22,53 @@ const Card = (props) => {
     get.innerHTML = value;
   };
   return (
-    
-    <div className='obj'>
+    <Box className='obj'>
       <p id='ename'>
         <p>
           name:<label id={element.id}>{element.name}</label>
-          <Button fontSize="small" startIcon={<EditIcon/>}  onClick={() => setIsInput(!isInput)}></Button>
+          <Button
+            fontSize='small'
+            startIcon={<EditIcon />}
+            onClick={() => setIsInput(!isInput)}
+          />
           {isInput ? (
-            <div>
-         
+            <Box>
               <TextField
-  id="input"
-  label="New Name"
-  value={value}
-  onChange={onChange}
-  size="small"
-  margin='normal'
-/>
+                id='input'
+                label='New Name'
+                value={value}
+                onChange={onChange}
+                size='small'
+                margin='normal'
+              />
 
-              <Button startIcon={<SaveIcon/>} onClick={onSave}></Button>
-            </div>
+              <Button startIcon={<SaveIcon />} onClick={onSave}></Button>
+            </Box>
           ) : (
-            <div>{value}</div>
+            <Box>{value}</Box>
           )}
         </p>
       </p>
       <p>count:{element.count}</p>
-    
-      <Button startIcon={<AddCircleIcon/>} sx={{margin:0.5, backgroundColor:"skyblue"}} onClick={() => update1(element.id)}></Button>
-      <Button startIcon={<RemoveCircleIcon/>} sx={{margin:0.5, backgroundColor:"skyblue"}} onClick={() => handleMinus(element.id)}></Button>
-      <Button startIcon={<DeleteIcon/>} sx={{margin:0.5, backgroundColor:"skyblue"}} onClick={() => deleteCards(element.id)}></Button>
-    </div>
+
+      <Button
+        startIcon={<AddCircleIcon />}
+        sx={{ margin: 0.5, backgroundColor: 'skyblue' }}
+        onClick={() => update1(element.id)}
+      ></Button>
+      <Button
+        startIcon={<RemoveCircleIcon />}
+        sx={{ margin: 0.5, backgroundColor: 'skyblue' }}
+        onClick={() => handleMinus(element.id)}
+      ></Button>
+      <Button
+        startIcon={<DeleteIcon />}
+        sx={{ margin: 0.5, backgroundColor: 'skyblue' }}
+        onClick={() => deleteCards(element.id)}
+      />
+
+      <Box sx={{ width: '10px', height: '10px', backgroundColor: 'red' }}></Box>
+    </Box>
   );
 };
 export default Card;

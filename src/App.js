@@ -5,9 +5,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Pag1 from './Pag1';
 import Aplic from './Aplic';
 import Pag2 from './Pag2';
+import { Box } from '@mui/material';
+
 const App = () => {
   return (
-    <div>
+    <Box>
       <Router>
         <Routes>
           <Route path='/' element={<Aplic />} />
@@ -15,9 +17,8 @@ const App = () => {
           <Route path='/Pag2' element={<Pag2 />} />
         </Routes>
       </Router>
-    </div>
+    </Box>
   );
 };
 
 export default App;
-

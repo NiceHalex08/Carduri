@@ -3,59 +3,55 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { Alert } from '@mui/material';
 
- const SimpleSnackbar=()=> {
+const SimpleSnackbar = ({
+  message,
+  severity = 'success',
+  isOpen,
+  setIsOpen,
+}) => {
   const [open, setOpen] = React.useState(false);
-  const [message,setMessage]=React.useState('');
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
+  const handleClose = (_, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-
-    setOpen(false);
+    setIsOpen(false);
   };
-  const   showMessage = (message, severity, duration = 2000) => {
-    // Renders a message
-    setMessage({
-      message: message,
-      severity: severity,
-      duration: duration,
-      open: true,
-    });
-   
+  // Renders a message
+
+  React.useEffect(() => {
+    setOpen(isOpen);
+  }, [isOpen]);
 
   const action = (
     <React.Fragment>
-      <Button color="secondary" size="small" onClick={handleClose}>
+      <Button color='secondary' size='small' onClick={handleClose}>
         UNDO
       </Button>
       <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
+        size='small'
+        aria-label='close'
+        color='inherit'
         onClick={handleClose}
       >
-        <CloseIcon fontSize="small" />
+        <CloseIcon fontSize='small' />
       </IconButton>
     </React.Fragment>
   );
 
   return (
-    <div>
-      <Button onClick={handleClick}>Open simple snackbar</Button>
-      <Snackbar
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        message="Note archived"
-        action={action}
-      />
-    </div>
+    <Snackbar
+      open={open}
+      autoHideDuration={6000}
+      onClose={handleClose}
+      action={action}
+    >
+      <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
+        {message}
+      </Alert>
+    </Snackbar>
   );
-}}
-export default SimpleSnackbar ;
+};
+export default SimpleSnackbar;

@@ -1,20 +1,20 @@
 // Library imports
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 //Internal imports
-import Cards from './Cards';
-import Header from './Header';
-import Form from './Form';
-import SimpleSnackbar from './SnakBar';
+import Cards from "./Cards";
+import Header from "./Header";
+import Form from "./Form";
+import SimpleSnackbar from "./SnakBar";
 
 //Design imports
-import { Typography } from '@mui/material';
-import { Box } from '@mui/material';
+import { Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 const Aplic = () => {
   const [cards, setCards] = useState([]);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   const addCard = (name, count) => {
@@ -25,7 +25,6 @@ const Aplic = () => {
     newArr.map((el) => {
       if (el.id === id) {
         el.count++;
-        // alert('Cantitate: ' + el.count);
         setIsOpen(true);
         setMessage(`Cantitate noua ${el.count}`);
       }
@@ -38,6 +37,8 @@ const Aplic = () => {
   const handleMinus = (id) => {
     const newCards = cards.map((card) => {
       if (card.id === id) {
+        setIsOpen(true);
+        setMessage(`Cantitate noua ${card.count}`);
         if (card.count > 0) return { ...card, count: card.count - 1 };
         else {
           deleteCards(id);
@@ -49,6 +50,8 @@ const Aplic = () => {
   };
   const deleteCards = (id) => {
     setCards(cards.filter((cards) => cards.id !== id));
+    setIsOpen(true);
+    setMessage(`Cantitate noua ${cards.id}`);
   };
 
   const showMessage = (message) => {
@@ -58,17 +61,17 @@ const Aplic = () => {
 
   return (
     <Box>
-      <Typography variant='h1' component=''></Typography>
-      <Box className='stiky'>
-        <Box className='header'>
+      <Typography variant="h1" component=""></Typography>
+      <Box className="stiky">
+        <Box className="header">
           <Header />
         </Box>
       </Box>
-      <Box className='center'>
-        <Box className='Sidebar'>
+      <Box className="center">
+        <Box className="Sidebar">
           <Form addCard={addCard} />
         </Box>
-        <Box className='main'>
+        <Box className="main">
           <Cards
             cards={cards}
             update1={update1}
@@ -77,7 +80,7 @@ const Aplic = () => {
           />
         </Box>
       </Box>
-      <Box className='footer'></Box>
+      <Box className="footer" />
       {
         <SimpleSnackbar
           message={message}

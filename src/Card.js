@@ -1,11 +1,14 @@
-import { Button, TextField } from '@mui/material';
-import { useState } from 'react';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import SaveIcon from '@mui/icons-material/Save';
-import { Box } from '@mui/material';
+// Library imports
+import { useState } from "react";
+
+//Design imports
+import { Button, TextField } from "@mui/material";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import SaveIcon from "@mui/icons-material/Save";
+import { Box } from "@mui/material";
 
 const Card = (props) => {
   const { element, update1, handleMinus, deleteCards } = props;
@@ -22,24 +25,24 @@ const Card = (props) => {
     get.innerHTML = value;
   };
   return (
-    <Box className='obj'>
-      <p id='ename'>
+    <Box className="obj">
+      <p id="ename">
         <p>
           name:<label id={element.id}>{element.name}</label>
           <Button
-            fontSize='small'
+            fontSize="small"
             startIcon={<EditIcon />}
             onClick={() => setIsInput(!isInput)}
           />
           {isInput ? (
             <Box>
               <TextField
-                id='input'
-                label='New Name'
+                id="input"
+                label="New Name"
                 value={value}
                 onChange={onChange}
-                size='small'
-                margin='normal'
+                size="small"
+                margin="normal"
               />
 
               <Button startIcon={<SaveIcon />} onClick={onSave}></Button>
@@ -53,21 +56,19 @@ const Card = (props) => {
 
       <Button
         startIcon={<AddCircleIcon />}
-        sx={{ margin: 0.5, backgroundColor: 'skyblue' }}
+        sx={{ margin: 0.5, backgroundColor: "skyblue" }}
         onClick={() => update1(element.id)}
       ></Button>
       <Button
         startIcon={<RemoveCircleIcon />}
-        sx={{ margin: 0.5, backgroundColor: 'skyblue' }}
+        sx={{ margin: 0.5, backgroundColor: "skyblue" }}
         onClick={() => handleMinus(element.id)}
       ></Button>
       <Button
         startIcon={<DeleteIcon />}
-        sx={{ margin: 0.5, backgroundColor: 'skyblue' }}
+        sx={{ margin: 0.5, backgroundColor: "skyblue" }}
         onClick={() => deleteCards(element.id)}
       />
-
-      <Box sx={{ width: '10px', height: '10px', backgroundColor: 'red' }}></Box>
     </Box>
   );
 };

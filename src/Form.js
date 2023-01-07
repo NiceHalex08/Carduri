@@ -1,6 +1,9 @@
-import { TextField } from '@mui/material';
-import { useState } from 'react';
-import { Box } from '@mui/material';
+// Library imports
+import { useState } from "react";
+
+//Design imports
+import { Button, TextField } from "@mui/material";
+import { Box } from "@mui/material";
 
 const Form = (props) => {
   const { addCard } = props;
@@ -14,24 +17,24 @@ const Form = (props) => {
   return (
     <Box>
       <TextField
-        id='name'
-        label='Name'
+        id="name"
+        label="Name"
         value={name}
         onChange={handleChange}
-        size='small'
-        margin='normal'
+        size="small"
+        margin="normal"
       />
       <TextField
-        type='number'
-        label='Count'
-        id='count'
-        name='count'
+        type="number"
+        label="Count"
+        id="count"
+        name="count"
         value={count}
         onChange={(e) => setCount(e.target.value)}
-        size='small'
-        margin='normal'
+        size="small"
+        margin="normal"
       />
-      <button onClick={() => addCard(name, count)}>Add</button>
+      <Button onClick={() => addCard(name, count)}>Add</Button>
     </Box>
   );
 };

@@ -1,14 +1,17 @@
-import { useState } from 'react';
-import './App.css';
-import { Box } from '@mui/material';
-import Card from './Card';
+//Internal imports
+import "./App.css";
+import Card from "./Card";
+
+//Design imports
+import { Box } from "@mui/material";
+
 const Cards = (props) => {
   const { cards, update1, handleMinus, deleteCards } = props;
 
   return (
-    <Box className='objcontent'>
-      <Box className='btnArea'></Box>
-      <Box className='cardsArea'>
+    <Box className="objcontent">
+      <Box className="btnArea"></Box>
+      <Box className="cardsArea">
         {cards.map((element) => (
           <Card
             element={element}

@@ -15,11 +15,14 @@
   display: flex;
 }
 .main {
+  display: flex;
+  flex: 1;
+  min-height: 585px;
+  height: auto;
   float: right;
   background-color: #717744;
   width: 85%;
   overflow: auto;
-  height: 100%;
 }
 
 .objcontent {

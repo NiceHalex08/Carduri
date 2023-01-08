@@ -12,7 +12,6 @@
 }
 .center {
   overflow: auto;
-  height: 100%;
   display: flex;
 }
 .main {
@@ -20,6 +19,7 @@
   background-color: #717744;
   width: 85%;
   overflow: auto;
+  height: 100%;
 }
 
 .objcontent {
@@ -71,4 +71,3 @@
 .sideButton:hover {
   background-color: #00d9ff;
 }
-

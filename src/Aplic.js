@@ -25,8 +25,8 @@ const Aplic = () => {
     newArr.map((el) => {
       if (el.id === id) {
         el.count++;
-        setIsOpen(true);
-        setMessage(`Cantitate noua ${el.count}`);
+
+        showMessage(`Cantitatea nou ${el.count}`);
       }
       return el;
     });
@@ -37,11 +37,9 @@ const Aplic = () => {
   const handleMinus = (id) => {
     const newCards = cards.map((card) => {
       if (card.id === id) {
-        setIsOpen(true);
-        setMessage(`Cantitate noua ${card.count}`);
-        if (card.count > 0) return { ...card, count: card.count - 1 };
-        else {
-          deleteCards(id);
+        if (card.count > 0) {
+          showMessage(`Cantitatea nou ${card.count - 1}`);
+          return { ...card, count: card.count - 1 };
         }
       }
       return card;
@@ -50,8 +48,7 @@ const Aplic = () => {
   };
   const deleteCards = (id) => {
     setCards(cards.filter((cards) => cards.id !== id));
-    setIsOpen(true);
-    setMessage(`Cantitate noua ${cards.id}`);
+    showMessage(`Ati sters cardul: ${id}`);
   };
 
   const showMessage = (message) => {

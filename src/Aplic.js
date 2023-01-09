@@ -49,7 +49,6 @@ const Aplic = () => {
   const deleteCards = (id, name) => {
     setCards(cards.filter((cards) => cards.id !== id));
     showMessage(`Ati sters cardul: ${name}`);
-    console.log(name);
   };
 
   const showMessage = (message) => {

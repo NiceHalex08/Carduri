@@ -14,6 +14,7 @@ const Cards = (props) => {
       <Box className="cardsArea">
         {cards.map((element) => (
           <Card
+            key={element.id}
             element={element}
             update1={update1}
             handleMinus={handleMinus}

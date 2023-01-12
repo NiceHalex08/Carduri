@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 //Design imports
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -26,32 +26,32 @@ const Card = (props) => {
   };
   return (
     <Box className="obj">
-      <p id="ename">
-        <p>
-          name:<label id={element.id}>{element.name}</label>
-          <Button
-            fontSize="small"
-            startIcon={<EditIcon />}
-            onClick={() => setIsInput(!isInput)}
-          />
-          {isInput ? (
-            <Box>
-              <TextField
-                id="input"
-                label="New Name"
-                value={value}
-                onChange={onChange}
-                size="small"
-                margin="normal"
-              />
+      <Box id="ename">
+        <Typography>Name: {element.name}</Typography>
 
-              <Button startIcon={<SaveIcon />} onClick={onSave}></Button>
-            </Box>
-          ) : (
-            <Box>{value}</Box>
-          )}
-        </p>
-      </p>
+        <Button
+          fontSize="small"
+          startIcon={<EditIcon />}
+          onClick={() => setIsInput(!isInput)}
+        />
+        {isInput ? (
+          <Box>
+            <TextField
+              id="input"
+              label="New Name"
+              value={value}
+              onChange={onChange}
+              size="small"
+              margin="normal"
+            />
+
+            <Button startIcon={<SaveIcon />} onClick={onSave}></Button>
+          </Box>
+        ) : (
+          <Box>{value}</Box>
+        )}
+      </Box>
+
       <p>count:{element.count}</p>
 
       <Button

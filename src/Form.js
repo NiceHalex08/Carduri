@@ -8,8 +8,8 @@ import { Box } from "@mui/material";
 const Form = (props) => {
   const { addCard } = props;
 
-  const [name, setName] = useState();
-  const [count, setCount] = useState();
+  const [name, setName] = useState("");
+  const [count, setCount] = useState(0);
   const handleChange = (event) => {
     setName(event.target.value);
   };
@@ -17,6 +17,7 @@ const Form = (props) => {
   return (
     <Box>
       <TextField
+        className="textL"
         id="name"
         label="Name"
         value={name}
@@ -25,6 +26,8 @@ const Form = (props) => {
         margin="normal"
       />
       <TextField
+        className="textL"
+        // InputLabelProps={{ className: textL }}
         type="number"
         label="Count"
         id="count"

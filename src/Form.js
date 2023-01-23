@@ -12,6 +12,7 @@ const Form = (props) => {
   const [count, setCount] = useState(0);
   const handleChange = (event) => {
     setName(event.target.value);
+    // daca nu contine cifra... regex.test
   };
 
   return (
@@ -22,6 +23,9 @@ const Form = (props) => {
         label="Name"
         value={name}
         onChange={handleChange}
+        onKeyDown={(event) => {
+          console.log(event.target.value);
+        }}
         size="small"
         margin="normal"
       />

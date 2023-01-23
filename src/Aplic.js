@@ -46,9 +46,11 @@ const Aplic = () => {
     });
     setCards(newCards);
   };
-  const deleteCards = (id, name) => {
+
+  const deleteCards = (id) => {
+    const card = cards.find((card) => card.id === id);
     setCards(cards.filter((cards) => cards.id !== id));
-    showMessage(`Ati sters cardul: ${name}`);
+    showMessage(`Ati sters cardul: ${card.name}`);
   };
 
   const showMessage = (message) => {

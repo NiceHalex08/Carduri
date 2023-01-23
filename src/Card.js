@@ -67,7 +67,7 @@ const Card = (props) => {
       <Button
         startIcon={<DeleteIcon />}
         sx={{ margin: 0.5, backgroundColor: "skyblue" }}
-        onClick={() => deleteCards(element.id, element.name)}
+        onClick={() => deleteCards(element.id)}
       />
     </Box>
   );
